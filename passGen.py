@@ -1,29 +1,38 @@
 # pip install pep8
 # pip install pycodestyle
+# pip install pytest
 # pep8 --first oknoBudynek.py
 # pycodestyle --first oknoBudynek.py
+# python -m pytest passGen.py
 # coding: utf-8
 from tkinter import *
 from tkinter import messagebox
 import random
 
 
-spc = ['@','#','$','%','&']
-not_spc1 = [0,1,2,3,4,5,6,7,8,9]
-not_spc2 = ['@','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
-not_spc3 = ['_','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+spc = ['@', '#', '$', '%', '&']
+not_spc1 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+not_spc2 = ['@', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
+            'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W',
+            'X', 'Y', 'Z']
+not_spc3 = ['_', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
+            'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w',
+            'x', 'y', 'z']
 
 
 def password_generator():
+
     pg = Tk()
     pg.geometry("350x150")
     pg.title("Password Generator (P-Protect)")
-    pg.resizable(0,0)
+    pg.resizable(0, 0)
+
     def pass_gen():
+
         pass_entry_text = ""
         generated = ""
         choice_lst = []
-        length = random.randint(9,10)
+        length = random.randint(9, 10)
         for i in range(length+1):
             special = random.choice(spc)
             number = random.choice(not_spc1)
@@ -41,7 +50,8 @@ def password_generator():
         # print(generated)
     empty = Label(pg, text="        ")
     empty.pack()
-    pass_label = Label(pg, text="GENERATE PASSWORD", font=('bold',14), fg="red")
+    pass_label = Label(pg, text="GENERATE PASSWORD",
+                       font=('bold', 14), fg="red")
     pass_label.pack()
     empty = Label(pg, text="         ")
     empty.pack()
@@ -52,9 +62,12 @@ def password_generator():
     pass_entry.pack()
     empty = Label(pg, text="         ")
     empty.pack()
-    pass_btn = Button(pg, text="GENERATE", font=5, fg="black", bg="yellow", command=pass_gen)
+    pass_btn = Button(pg, text="GENERATE",
+                      font=5, fg="black", bg="yellow", command=pass_gen)
     pass_btn.pack()
     pg.mainloop()
 
+
 if __name__ == '__main__':
+
     password_generator()
