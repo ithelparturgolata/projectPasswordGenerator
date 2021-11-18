@@ -1,3 +1,8 @@
+# pip install pep8
+# pip install pycodestyle
+# pep8 --first oknoBudynek.py
+# pycodestyle --first oknoBudynek.py
+# coding: utf-8
 from tkinter import *
 from tkinter import messagebox
 import random
